@@ -15,7 +15,7 @@ const GET_USERS = gql`
   }
 `;
 
-function Users() {
+function Users({selectUser}) {
   const { loading, error, data } = useQuery(GET_USERS);
 
   if (loading) return "Loading...";
@@ -26,7 +26,7 @@ function Users() {
       {data.users.map(user => (
         <div
           className="lg:w-1/3 w-full p-4 text-center inline"
-          
+          onClick={selectUser.bind(this,user)}
         >
           <UserAvatar user={user} />
         </div>
