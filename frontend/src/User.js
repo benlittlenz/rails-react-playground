@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import UserAvatar from './UserAvatar';
+import Posts from './Posts'
 
 const GET_USER = gql`
   query User($id: ID!) {
@@ -35,9 +36,9 @@ function User({ user, selectUser }) {
         <div className="lg:w-1/4 w-full rounded text-center">
           <UserAvatar user={user} />
         </div>
-        {/* <div className="pox-4 flex-1 w-full">
+        <div className="pox-4 flex-1 w-full">
           <Posts posts={data.user.posts} user={user} />
-        </div> */}
+        </div>
       </div>
     </React.Fragment>
   )
